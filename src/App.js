@@ -31,11 +31,13 @@ class App extends Component {
 }
 
 export function fizzBuzz(number) {
-  if (number == 6) {
+  if (number % 3 == 0) {
     return 'fizz';
-  } else {
-    return `${number}`;
   }
+  if(number % 5 == 0) {
+    return 'buzz'
+  }
+  return `${number}`;
 }
 
 export default App;

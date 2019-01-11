@@ -73,4 +73,8 @@ describe('fizzBuzz function', () => {
   it('returns fizz given a number divisible by 3', () => {
     expect(fizzBuzz(6)).toBe('fizz');
   });
+
+  it('returns buzz when given a number divisible by five', () => {
+    expect(fizzBuzz(10)).toBe('buzz');
+  });
 });
