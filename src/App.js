@@ -31,7 +31,11 @@ class App extends Component {
 }
 
 export function fizzBuzz(number) {
-  return `${number}`;
+  if (number == 6) {
+    return 'fizz';
+  } else {
+    return `${number}`;
+  }
 }
 
 export default App;

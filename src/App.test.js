@@ -66,7 +66,11 @@ describe("FizzBuzz app", () => {
 });
 
 describe('fizzBuzz function', () => {
-  it('returns the argument if not divisible by 3 or 5', () => {
+  it('returns the argument as string if not divisible by 3 or 5', () => {
     expect(fizzBuzz(17)).toBe('17');
+  });
+
+  it('returns fizz given a number divisible by 3', () => {
+    expect(fizzBuzz(6)).toBe('fizz');
   });
 });
