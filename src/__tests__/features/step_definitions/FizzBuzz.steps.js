@@ -40,6 +40,6 @@ defineFeature(feature, test => {
     test('Returns fizz when given a number divisible by three', ({ given, when, then }) => {
         givenInputContains(given);
         whenIClickSubmit(when);
-        thenIsDisplayed(then);
+        thenIsDisplayed(then); 
     });
 });

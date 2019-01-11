@@ -16,8 +16,16 @@ describe("FizzBuzz app", () => {
     wrapper = shallow(<App />);
   });
 
-  it('has a place for input', () => {
-    expect(wrapper.exists('input#input')).toBe(true);
+  describe('input', () => {
+    it('exists', () => {
+      expect(wrapper.exists('input#input')).toBe(true);
+    });
+
+    it('updates state when typed in', () => {
+      const inputValue = 'foo';
+      wrapper.find('input#input').simulate('change', { target: { value: inputValue } });
+      expect(wrapper.state('input')).toBe(inputValue);
+    });
   });
 
   it('has a submit button', () => {
