@@ -48,4 +48,10 @@ defineFeature(feature, test => {
         whenIClickSubmit(when);
         thenIsDisplayed(then); 
     });
+    
+    test('Returns fizzbuzz when given a number divisible by three and five', ({ given, when, then }) => {
+        givenInputContains(given);
+        whenIClickSubmit(when);
+        thenIsDisplayed(then); 
+    });
 });

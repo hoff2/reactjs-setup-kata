@@ -31,6 +31,9 @@ class App extends Component {
 }
 
 export function fizzBuzz(number) {
+  if (number % 3 == 0 && number % 5 == 0) {
+    return 'fizzbuzz';
+  }
   if (number % 3 == 0) {
     return 'fizz';
   }
