@@ -8,3 +8,7 @@ Feature: FizzBuzz
     When I click submit
     Then 17 is displayed
  
+   Scenario: Returns fizz when given a number divisible by three
+    Given Input contains 6
+    When I click submit
+    Then fizz is displayed

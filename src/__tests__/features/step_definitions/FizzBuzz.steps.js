@@ -6,24 +6,40 @@ import App from '../../../App.js'
 const feature = loadFeature('./src/__tests__/features/FizzBuzz.feature');
 
 defineFeature(feature, test => {
-    test('Returns a number when given a number not divisible by 3 or 5', ({ given, when, then }) => {
 
-        let wrapper;
+    let wrapper;
 
-        beforeEach(() => {
-            wrapper = shallow(<App />);
+    beforeEach(() => {
+        wrapper = shallow(<App />);
+    });
+
+    const givenInputContains = given => {
+        given(/^Input contains (.*)$/, (inputValue) => {
+            wrapper.find('input#input').simulate('change', { target: { value: inputValue } });
         });
+    };
 
-        given('Input contains 17', () => {
-            wrapper.find('input#input').simulate('change', { target: { value: '17' } });
-        });
-
+    const whenIClickSubmit = when => {
         when('I click submit', () => {
             wrapper.find('input[type="submit"]').simulate('click');
         });
+    };
 
-        then('17 is displayed', () => {
-            expect(wrapper.find('#output').text()).toBe('17');
+    const thenIsDisplayed = then => {
+        then(/^(.*) is displayed$/, (expected) => {
+            expect(wrapper.find('#output').text()).toBe(expected);
         });
-    }); 
+    }
+
+    test('Returns a number when given a number not divisible by 3 or 5', ({ given, when, then }) => {
+        givenInputContains(given);
+        whenIClickSubmit(when);
+        thenIsDisplayed(then);
+    });
+    
+    test('Returns fizz when given a number divisible by three', ({ given, when, then }) => {
+        givenInputContains(given);
+        whenIClickSubmit(when);
+        thenIsDisplayed(then);
+    });
 });
