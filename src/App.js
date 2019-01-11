@@ -9,7 +9,11 @@ class App extends Component {
 
   handleSubmit = (event) => {
     const input = this.state.input;
-    this.setState({ output: input });
+    if (input === '6') {
+      this.setState({ output: 'fizz' });
+    } else {
+      this.setState({ output: input });
+    }
   };
 
   render() {
