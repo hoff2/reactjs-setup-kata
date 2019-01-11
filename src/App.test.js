@@ -16,11 +16,15 @@ describe("FizzBuzz app", () => {
     wrapper = shallow(<App />);
   });
 
-  it("has a place for input", () => {
+  it('has a place for input', () => {
     expect(wrapper.exists('input#input')).toBe(true);
   });
 
-  it("has a submit button", () => {
+  it('has a submit button', () => {
     expect(wrapper.exists('input[type="submit"]')).toBe(true);
+  });
+
+  it('has a place for output', () => {
+    expect(wrapper.exists('#output')).toBe(true);
   });
 });

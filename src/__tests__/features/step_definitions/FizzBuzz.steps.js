@@ -23,7 +23,7 @@ defineFeature(feature, test => {
         });
 
         then('17 is displayed', () => {
-
+            expect(wrapper.find('#output').text()).toBe('17');
         });
     }); 
 });
