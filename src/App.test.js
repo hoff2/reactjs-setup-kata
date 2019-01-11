@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { shallow } from 'enzyme';
-import App from "./App";
+import App, { fizzBuzz } from "./App";
 
 it("renders without crashing", () => {
   const div = document.createElement("div");
@@ -65,3 +65,8 @@ describe("FizzBuzz app", () => {
   });
 });
 
+describe('fizzBuzz function', () => {
+  it('returns the argument if not divisible by 3 or 5', () => {
+    expect(fizzBuzz(17)).toBe('17');
+  });
+});

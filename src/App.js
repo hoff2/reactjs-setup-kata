@@ -30,4 +30,8 @@ class App extends Component {
   }
 }
 
+export function fizzBuzz(number) {
+  return `${number}`;
+}
+
 export default App;
