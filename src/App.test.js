@@ -17,6 +17,10 @@ describe("FizzBuzz app", () => {
   });
 
   it("has a place for input", () => {
-    expect(wrapper.exists('#input')).toBe(true);
+    expect(wrapper.exists('input#input')).toBe(true);
+  });
+
+  it("has a submit button", () => {
+    expect(wrapper.exists('input[type="submit"]')).toBe(true);
   });
 });

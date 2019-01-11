@@ -15,11 +15,11 @@ defineFeature(feature, test => {
         });
 
         given('Input contains 17', () => {
-            wrapper.find('#input').simulate('change', { target: { value: '17' } });
+            wrapper.find('input#input').simulate('change', { target: { value: '17' } });
         });
 
         when('I click submit', () => {
-
+            wrapper.find('input[type="submit"]').simulate('click');
         });
 
         then('17 is displayed', () => {
