@@ -40,9 +40,11 @@ describe("FizzBuzz app", () => {
 
     let wrapper;
     let argument;
+    let returnValue = 'bar';
 
     const testFunction = (arg) => {
       argument = arg;
+      return returnValue;
     };
 
     beforeEach(() => {
@@ -54,6 +56,11 @@ describe("FizzBuzz app", () => {
       wrapper.setState({ input: inputValue });
       wrapper.find('input[type="submit"]').simulate('click');
       expect(argument).toBe(inputValue);
+    });
+
+    it('gets its return value placed in the output', () => {
+      wrapper.find('input[type="submit"]').simulate('click');
+      expect(wrapper.find('#output').text()).toBe(returnValue);
     });
   });
 });
