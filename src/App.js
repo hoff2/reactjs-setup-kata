@@ -6,7 +6,7 @@ class App extends Component {
       <div>
         <input type="text" id="input" />
         <input type="submit" />
-        <div id="output" />
+        <div id="output">17</div>
       </div>
     );
   }
