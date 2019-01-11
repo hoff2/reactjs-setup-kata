@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 
 class App extends Component {
-  state = {};
+
+  calculateFunction;
+
+  constructor(props) {
+    super(props)
+    this.state = {};
+    this.calculateFunction = props.calculate;
+  }
 
   updateInput = (event) => {
     this.setState({ input: event.target.value });
@@ -9,11 +16,7 @@ class App extends Component {
 
   handleSubmit = (event) => {
     const input = this.state.input;
-    if (input === '6') {
-      this.setState({ output: 'fizz' });
-    } else {
-      this.setState({ output: input });
-    }
+    this.setState({ output: this.calculateFunction(input) });
   };
 
   render() {

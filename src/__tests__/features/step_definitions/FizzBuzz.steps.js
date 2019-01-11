@@ -10,7 +10,7 @@ defineFeature(feature, test => {
     let wrapper;
 
     beforeEach(() => {
-        wrapper = shallow(<App />);
+        wrapper = shallow(<App calculate={a => a} />);
     });
 
     const givenInputContains = given => {
@@ -38,6 +38,12 @@ defineFeature(feature, test => {
     });
     
     test('Returns fizz when given a number divisible by three', ({ given, when, then }) => {
+        givenInputContains(given);
+        whenIClickSubmit(when);
+        thenIsDisplayed(then); 
+    }); 
+
+    test('Returns buzz when given a number divisible by five', ({ given, when, then }) => {
         givenInputContains(given);
         whenIClickSubmit(when);
         thenIsDisplayed(then); 

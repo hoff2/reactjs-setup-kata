@@ -5,7 +5,7 @@ import App from "./App";
 
 it("renders without crashing", () => {
   const div = document.createElement("div");
-  ReactDOM.render(<App />, div);
+  ReactDOM.render(<App calculate={() => {}}/>, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 
@@ -35,4 +35,26 @@ describe("FizzBuzz app", () => {
   it('has a place for output', () => {
     expect(wrapper.exists('#output')).toBe(true);
   });
+
+  describe('calculate prop', () => {
+
+    let wrapper;
+    let argument;
+
+    const testFunction = (arg) => {
+      argument = arg;
+    };
+
+    beforeEach(() => {
+      wrapper = shallow(<App calculate={testFunction} />);
+    });
+
+    it('is called with the input contents when submit is clicked', () => {
+      const inputValue = 'foo';
+      wrapper.setState({ input: inputValue });
+      wrapper.find('input[type="submit"]').simulate('click');
+      expect(argument).toBe(inputValue);
+    });
+  });
 });
+

@@ -12,3 +12,8 @@ Feature: FizzBuzz
     Given Input contains 6
     When I click submit
     Then fizz is displayed
+
+   Scenario: Returns buzz when given a number divisible by five
+    Given Input contains 10
+    When I click submit
+    Then buzz is displayed    
